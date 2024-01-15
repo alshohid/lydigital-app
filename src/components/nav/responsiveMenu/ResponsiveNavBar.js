@@ -63,7 +63,8 @@ const label = { inputProps: { 'aria-label': 'Switch demo' } };
               </li>
               <li> <Link onClick={closeMobileMenu} href={`/docs`}>  Docs</Link></li>
               <li> <Link onClick={closeMobileMenu} href={`/help`}> Help</Link></li>
-              <Button className='text-[#1565D8] font-semibold text-[14px] lowercase  ' variant="outlined">Get in new</Button>
+                 <li className= {`px-3 py-2 ring-2 font-semibold text-[14px] text-[#1565D8] `}> Get in now  </li>
+             
             </ul>
           </div>
           <a className="btn btn-ghost text-xl"> TravaUX</a>
@@ -95,15 +96,17 @@ const label = { inputProps: { 'aria-label': 'Switch demo' } };
             </li>
             <li> <Link href={`/docs`}> Docs </Link> </li>
             <li> <Link href={`/help`}  > Help</Link></li>
-            <Button className='text-[#1565D8] font-semibold text-[14px] lowercase  ' variant="outlined">Get in new</Button>
+            <li className= {`px-3 py-2 ring-2 font-semibold text-[14px] text-[#1565D8] `}> Get in now  </li>
+             
+            
           </ul>
         </div>
-        <div className="navbar-end">
+        {/* <div className="navbar-end">
         
         <span>{isChecked ? 'Dark' : 'Light'}</span>
         <Switch  {...label} checked={isChecked} onChange={handleSwitchClick} />
      
-        </div>
+        </div> */}
     </div>
 </nav>
     )
