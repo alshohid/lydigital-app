@@ -1,0 +1,19 @@
+.carftsManContainer{
+display: inline-flex;
+padding: 80px;
+flex-direction: column;
+align-items: center;
+gap: 40px;
+background: rgba(0, 74, 173, 0.05);
+width: 100%;
+}
+.carftsManHeaderText{
+color:  #101010;
+text-align: center;
+font-family: Open Sans;
+font-size: 40px;
+font-style: normal;
+font-weight: 600;
+line-height: 50px;  
+text-transform: capitalize;
+}

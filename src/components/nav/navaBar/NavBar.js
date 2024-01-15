@@ -16,15 +16,14 @@ import NavMenuItem from "../NavMenuItem";
        
 
    return (
-     <div className={Styles.navContainer}>
-        <div>
-            <h1>Logo</h1>
-        </div>
-        <div>
-           <NavMenuItem menuItems={menuItems}/>
-        </div>
-
-     </div>
+      <div className={Styles.navContainer}>
+      <div className={Styles.logoContainerDesktop}>
+        <h1>Logo</h1>
+      </div>
+      <div>
+        <NavMenuItem menuItems={menuItems} />
+      </div>
+    </div>
    )
  }
  

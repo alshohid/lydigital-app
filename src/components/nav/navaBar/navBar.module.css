@@ -14,3 +14,13 @@ align-items: center;
 gap: 40px;
 flex-shrink: 0;
 }
+.logoContainerDesktop {
+    display: block; /* Show the logo by default */
+  }
+  
+  /* Media query for mobile devices */
+  @media (max-width: 768px) {
+    .logoContainerDesktop {
+      display: none; /* Hide the logo for screens 768px and below */
+    }
+  }

@@ -1,7 +1,9 @@
 import { Inter } from 'next/font/google'
 import './globals.css'
 import { ThemeProvider } from '@/components/themContext/ThemeProvider'
-import NavBar from '@/components/nav/navaBar/NavBar'
+import ResponsiveNavBar from '@/components/nav/responsiveMenu/ResponsiveNavBar'
+ 
+ 
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -15,7 +17,8 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={inter.className}>
         <ThemeProvider>
-          <NavBar/>
+          
+          <ResponsiveNavBar/>
           {children}
         </ThemeProvider>
       </body>
