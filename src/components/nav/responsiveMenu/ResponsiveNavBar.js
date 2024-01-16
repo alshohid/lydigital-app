@@ -63,7 +63,7 @@ const label = { inputProps: { 'aria-label': 'Switch demo' } };
               </li>
               <li> <Link onClick={closeMobileMenu} href={`/docs`}>  Docs</Link></li>
               <li> <Link onClick={closeMobileMenu} href={`/help`}> Help</Link></li>
-                 <li className= {`px-3 py-2 ring-2 font-semibold text-[14px] text-[#1565D8] `}> Get in now  </li>
+                 <li className= {`px-3 py-2 ring-2 font-semibold text-[14px] text-[#1565D8] `}> <Link href='/getinnew'> Get in new</Link>  </li>
              
             </ul>
           </div>
@@ -96,7 +96,7 @@ const label = { inputProps: { 'aria-label': 'Switch demo' } };
             </li>
             <li> <Link href={`/docs`}> Docs </Link> </li>
             <li> <Link href={`/help`}  > Help</Link></li>
-            <li className= {`px-3 py-2 ring-2 font-semibold text-[14px] text-[#1565D8] `}> Get in now  </li>
+            <li className= {`px-3 py-2 ring-2 font-semibold text-[14px] text-[#1565D8] `}> <Link href='/getinnew'> Get in new</Link>  </li>
              
             
           </ul>

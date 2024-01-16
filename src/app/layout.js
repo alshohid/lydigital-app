@@ -2,6 +2,7 @@ import { Inter } from 'next/font/google'
 import './globals.css'
 import { ThemeProvider } from '@/components/themContext/ThemeProvider'
 import ResponsiveNavBar from '@/components/nav/responsiveMenu/ResponsiveNavBar'
+import Footer from '@/components/footer/Footer'
  
  
 
@@ -20,6 +21,7 @@ export default function RootLayout({ children }) {
           
           <ResponsiveNavBar/>
           {children}
+          <Footer/>
         </ThemeProvider>
       </body>
     </html>
