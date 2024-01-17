@@ -9,7 +9,11 @@ import StepLabel from '@mui/material/StepLabel';
 import Button from '@mui/material/Button';
 import CircularProgress from '@mui/material/CircularProgress';
 import Typography from '@mui/material/Typography';
-import CardYorProject from '../yourProject/CardYorProject';
+import YourProjectForm from '../yourProject/YourProjectForm';
+import SupplyAndInstall from '../supplyInstall/SupplyAndInstall';
+import ProjectDetails from '../projectDetails/ProjectDetails';
+import ContactDetails from '../contactDetails/ContactDetails'
+ 
 
 const steps = [
   'Your Project',
@@ -20,14 +24,18 @@ const steps = [
 
 export default function StepperForm() {
   const [activeStep, setActiveStep] = useState(0);
+  console.log('active step = ', activeStep)
 
-  return (
-    <div className='bg-[#FFF] w-full h-[100vh]'>
-      <Box sx={{ width: '80%', margin: 'auto' }}>
+  return (  
+
+    <>  
+    <div className='bg-[#FFF] w-full space-y-6 mb-5 p-5'>
+      <Box sx={{ width: '80%', margin: 'auto' }} className='mb-3'>
         <Stepper activeStep={activeStep} alternativeLabel>
           {steps.map((label, index) => (
             <Step key={label}>
               <StepLabel
+            
                 StepIconComponent={(props) => {
                   return (
                     <div style={{ position: 'relative' }}>
@@ -37,10 +45,10 @@ export default function StepperForm() {
                          background:`${activeStep === index ?'#004AAD' :'white'}`}}>
                          <CircularProgress
                             {...props}
-                             
                             variant={activeStep === index ? 'indeterminate' : 'determinate'}
                             value={activeStep === index ? undefined : 100}
                           />
+                             
                           <Typography
                             variant="body2"
                             style={{
@@ -62,47 +70,48 @@ export default function StepperForm() {
                   );
                 }}
               >
-                {label}
+               <span   className={`${activeStep === index ? 'text-[#004AAD] font-semibold'  : 'text-black '}`}>  {label} </span>
               </StepLabel>
             </Step>
           ))}
         </Stepper>
       </Box>
 
-     <div style={{width:'80%',margin:'auto'}}>
-         <h3 className='text-[24px] text-[#363636]'>Select the type of work you want to carry out</h3>
-         <div className="  border-b border-blue-500 h-[1.5px] bg-blue-500 "></div>
-         <div className='space-y-4'>
-            <div className='grid sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-3 space-y-3'>
-               <CardYorProject/>
-               <CardYorProject/>
-               <CardYorProject/>
-               <CardYorProject/>
-               <CardYorProject/>
-               <CardYorProject/>
-               <CardYorProject/>
-               <CardYorProject/>
-
-            </div>
-
-         </div>
-
-          
+     <div style={{width:'80%',margin:'auto'}} className='space-y-6'>
+      {
+        activeStep === 0 && <YourProjectForm/>
+      }
+       {
+        activeStep === 1 && <SupplyAndInstall/>
+      }
+       {
+        activeStep === 2 &&    <ProjectDetails/>
+      }
+       {
+        activeStep ===3 && <ContactDetails/>
+      }
+         
      </div>
 
-
-
-
-      <div className="text-center">
+    </div>
+    <div className='border' style={{width:'80%' , margin:'auto'}}></div>
+    <div className="text-center mt-3 mb-4">
         <Button
           variant="outlined"
           sx={{ mr: 1 }}
           onClick={() => setActiveStep((prevStep) => prevStep + 1)}
-          // disabled={activeStep === steps.length }
+          disabled={activeStep === steps.length }
         >
           Next
         </Button>
       </div>
-    </div>
+          
+
+          
+
+
+
+     
+    </>
   );
 }
