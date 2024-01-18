@@ -5,6 +5,7 @@ import {useState} from 'react'
 import { useTheme } from '@/components/themContext/ThemeProvider';
 import Switch from '@mui/material/Switch';
 import toggleDarkMode from '@/lib/toggleDarkMode';
+import DrawerNavMenu from '../DrawerNavMenu';
 const label = { inputProps: { 'aria-label': 'Switch demo' } };
   const ResponsiveNavBar = () => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -22,6 +23,24 @@ const label = { inputProps: { 'aria-label': 'Switch demo' } };
         toggleTheme();
        toggleDarkMode();
         setChecked(!isChecked);
+      };
+      const [state, setState] =  useState({
+        top: false,
+        left: false,
+        bottom: false,
+        right: false,
+      });
+
+      const toggleDrawer = (anchor, open) => (event) => {
+        if (
+          event &&
+          event.type === 'keydown' &&
+          (event.key === 'Tab' || event.key === 'Shift')
+        ) {
+          return;
+        }
+    
+        setState({ ...state, [anchor]: open });
       };
    
     return (
@@ -75,12 +94,13 @@ const label = { inputProps: { 'aria-label': 'Switch demo' } };
             <li>
               <details>
                 <summary>
-                  Landings  
+                <p   onClick={toggleDrawer('top', true)} >Landings</p>  
+                 
                 </summary>
-                <ul className="p-2">
+                {/* <ul className="p-2">
                   <li><a>Submenu 1</a></li>
                   <li><a>Submenu 2</a></li>
-                </ul>
+                </ul> */}
               </details>
             </li>
             <li>
@@ -107,6 +127,7 @@ const label = { inputProps: { 'aria-label': 'Switch demo' } };
         <Switch  {...label} checked={isChecked} onChange={handleSwitchClick} />
      
         </div> */}
+        <DrawerNavMenu toggleDrawer={toggleDrawer} state={state}/>
     </div>
 </nav>
     )
