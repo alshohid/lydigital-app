@@ -1,17 +1,38 @@
 'use client'
 import Link from 'next/link'
 import Button from '@mui/material/Button';
-import {useState} from 'react' 
+import {useState,useEffect} from 'react' 
 import { useTheme } from '@/components/themContext/ThemeProvider';
 import Switch from '@mui/material/Switch';
 import toggleDarkMode from '@/lib/toggleDarkMode';
 import DrawerNavMenu from '../DrawerNavMenu';
+import Styles from './ResponsiveNavBar.module.css';
+
 const label = { inputProps: { 'aria-label': 'Switch demo' } };
+
+
   const ResponsiveNavBar = () => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [isChecked, setChecked] = useState(false);
     const { toggleTheme } = useTheme();
+    
 
+
+    const [isSticky, setSticky] = useState(false);
+
+    useEffect(() => {
+      const handleScroll = () => {
+        const scrollY = window.scrollY;
+        setSticky(scrollY > 250);
+      };
+  
+      window.addEventListener('scroll', handleScroll);
+  
+    
+      return () => {
+        window.removeEventListener('scroll', handleScroll);
+      };
+    }, []);
     const toggleMobileMenu = () => {
       setIsMobileMenuOpen(!isMobileMenuOpen);
     };
@@ -19,11 +40,7 @@ const label = { inputProps: { 'aria-label': 'Switch demo' } };
         setIsMobileMenuOpen(false);
       };
 
-      const handleSwitchClick = () => {
-        toggleTheme();
-       toggleDarkMode();
-        setChecked(!isChecked);
-      };
+ 
       const [state, setState] =  useState({
         top: false,
         left: false,
@@ -44,7 +61,8 @@ const label = { inputProps: { 'aria-label': 'Switch demo' } };
       };
    
     return (
- <nav className='bg-[#F2F6FB] sticky top-0'>
+  
+   <nav className={`bg-[#F2F6FB]   ${Styles.navbar} ${isSticky ? `${Styles.stickyNavBar}` : ''}`}> 
     <div className="navbar">
 
         <div className="navbar-start">
@@ -116,7 +134,7 @@ const label = { inputProps: { 'aria-label': 'Switch demo' } };
             </li>
             <li> <Link href={`/docs`}> Docs </Link> </li>
             <li> <Link href={`/help`}  > Help</Link></li>
-            <li className= {`px-3 py-2 ring-2 font-semibold text-[14px] text-[#1565D8] `}> <Link href='/getinnew'> Get in new</Link>  </li>
+            <li className= {`px-3 py-2 ring-2 font-semibold text-[14px] text-[#1565D8] bg-none `}> <Link href='/getinnew'> Get in new</Link>  </li>
              
             
           </ul>

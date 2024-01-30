@@ -1,0 +1,15 @@
+.navbar {
+    
+    padding: 10px;
+   
+  }
+  
+  .stickyNavBar{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: rgb(209, 202, 202);  
+    padding: 5px;  
+  
+  }
